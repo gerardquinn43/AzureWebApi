@@ -31,6 +31,6 @@ ENTRYPOINT ["dotnet", "AzureWebApi.dll", "--launch-profile http"]
 #
 # docker run -it --rm --entrypoint "bash" azurewebapi-image:latest
 # dotnet run bin/Debug/net8.0/AzureWebApi.dll --launch-profile http
-#
+# 
 # http://localhost:8080/swagger/index.html
 #
