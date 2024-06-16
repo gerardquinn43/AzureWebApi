@@ -25,7 +25,7 @@ EXPOSE 8080
 ENTRYPOINT ["dotnet", "AzureWebApi.dll", "--launch-profile http"]
 
 # https://learn.microsoft.com/en-us/dotnet/core/docker/build-container?tabs=linux&pivots=dotnet-8-0
-# docker build -t azurewebapi-image -f Dockerfile .
+# docker build -t azurewebapi:latest -f Dockerfile .
 #
 # docker run --rm -it -p 8080:8080 azurewebapi-image:latest
 #
