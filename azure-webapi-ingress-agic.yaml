@@ -13,3 +13,4 @@ spec:
             name: azure-webapi
             port:
               number: 8080
+        pathType: Prefix
