@@ -12,5 +12,4 @@ spec:
           service:
             name: azure-webapi
             port:
-              number: 80
-        pathType: Exact
+              number: 8080
