@@ -3,4 +3,8 @@ parameters:
 
 variables:
   build-config: Release
-  container-registry-connection: AzureContainerRegistryConnection
+  dockerRegistryServiceConnection: AzureContainerRegistryConnection #'5c82c08e-fa5b-48e3-88fe-6c2bebc55296'
+  imageRepository: 'web/azure-webapi'
+  containerRegistry: 'bmmainacr.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)' 
