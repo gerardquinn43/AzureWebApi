@@ -13,15 +13,18 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build-env /app/out .
 
+RUN apt-get update && apt-get install -y curl
+
 ARG BUILD_CONFIGURATION=Debug
 ENV ASPNETCORE_ENVIRONMENT=Development
 ENV DOTNET_USE_POLLING_FILE_WATCHER=true  
-ENV ASPNETCORE_HTTP_PORTS=8080
-ENV ASPNETCORE_HTTPS_PORT=8585
-ENV ASPNETCORE_URLS=https://+:8585;http://+:8080
-ENV HTTP_PORTS=8080
-EXPOSE 8080
-
+ENV ASPNETCORE_HTTP_PORTS=80
+ENV ASPNETCORE_HTTPS_PORT=443
+ENV ASPNETCORE_URLS=https://+:443;http://+:80
+ENV HTTP_PORTS=80
+ENV HTTPS_PORTS=443
+EXPOSE 80
+EXPOSE 443
 ENTRYPOINT ["dotnet", "AzureWebApi.dll", "--launch-profile http"]
 
 # https://learn.microsoft.com/en-us/dotnet/core/docker/build-container?tabs=linux&pivots=dotnet-8-0

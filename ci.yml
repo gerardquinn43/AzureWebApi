@@ -1,0 +1,25 @@
+name: ci
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - /
+    exclude:
+      - /Common
+  
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+- template: ./Common/ci-vars.yml
+  parameters:
+    projectName: azure-webapi
+
+steps:
+- template: ./Common/ci-steps.yml
