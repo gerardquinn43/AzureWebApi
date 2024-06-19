@@ -1,0 +1,9 @@
+steps:
+- task: DotNetCoreCLI@2
+  displayName: "dotnet restore"
+  inputs:
+    command: "restore"
+- task: DotNetCoreCLI@2
+  displayName: "dotnet build release"
+  inputs:
+    command: "publish -c $(build-config) -o out"    

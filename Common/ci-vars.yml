@@ -1,0 +1,6 @@
+parameters:
+  projectName: ''
+
+variables:
+  build-config: Release
+  container-registry-connection: AzureContainerRegistryConnection
