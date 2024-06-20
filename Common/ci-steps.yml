@@ -6,7 +6,7 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: "dotnet build release"
   inputs:
-    command: "publish -c $(build-config)"
+    command: "build -c $(build-config)"
 - task: Docker@2
   displayName: Build and push an image to container registry
   inputs:
