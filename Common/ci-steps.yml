@@ -20,3 +20,12 @@ steps:
   inputs:
     command: login
     containerRegistry: $(dockerRegistryServiceConnection)
+- task: Docker@2
+  displayName: Build docker image
+  inputs:
+    command: buildAndPush
+    containerRegistry: $(dockerRegistryServiceConnection)
+    repository: $(imageRepository)
+    tags: |
+      $(Build.BuildId)
+      latest
