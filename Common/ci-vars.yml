@@ -2,6 +2,7 @@ parameters:
   projectName: ''
 
 variables:
+  System.Debug: true
   build-config: Release
   dockerRegistryServiceConnection: AzureContainerRegistryConnection #'5c82c08e-fa5b-48e3-88fe-6c2bebc55296'
   imageRepository: 'web/azure-webapi'
