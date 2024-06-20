@@ -4,7 +4,7 @@ parameters:
 variables:
   System.Debug: true
   build-config: Release
-  dockerRegistryServiceConnection: AzureContainerRegistryConnection #'5c82c08e-fa5b-48e3-88fe-6c2bebc55296'
+  dockerRegistryServiceConnection: '5c82c08e-fa5b-48e3-88fe-6c2bebc55296' #AzureContainerRegistryConnection
   imageRepository: 'web/azure-webapi'
   containerRegistry: 'bmmainacr.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
