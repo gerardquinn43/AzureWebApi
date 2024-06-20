@@ -16,11 +16,7 @@ steps:
     arguments: "-c $(build-config)"
   displayName: "dotnet publish $(build-config) -o out"
 - task: Docker@2
-  displayName: Build and push an image to container registry
+  displayName: ACR Container Registryi Login
   inputs:
-    command: buildAndPush
-    repository: $(imageRepository)
+    command: login
     containerRegistry: $(dockerRegistryServiceConnection)
-    tags: |
-      $(Build.BuildId)
-      latest
