@@ -1,4 +1,20 @@
 steps:
+- checkout: self
+  fetchDepth: 0
+- task: gitversion/setup@1
+  displayName: gitversion
+  name: GitVersionSetup
+  inputs:
+    versionSpec: '5.x'
+- task: gitversion/execute@1
+  displayName: gitversion   
+  name: GitVersion        
+  inputs:
+    useConfigFile: true
+    configFilePath: ./gitversion.yml
+    updateAssemblyInfo: true
+- bash: env | sort
+- script: echo legacy semver '$(GitVersion.SemVer)'
 - task: DotNetCoreCLI@2
   displayName: "dotnet restore"
   inputs:
@@ -27,5 +43,5 @@ steps:
     containerRegistry: $(dockerRegistryServiceConnection)
     repository: $(imageRepository)
     tags: |
-      $(Build.BuildId)
+      $(GitVersion.SemVer)
       latest
